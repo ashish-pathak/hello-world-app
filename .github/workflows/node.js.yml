@@ -30,7 +30,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-        npm run build
+        npm run dev
       working-directory: .
 
     - name: Deploy
