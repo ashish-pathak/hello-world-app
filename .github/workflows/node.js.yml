@@ -30,14 +30,14 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-        npm run dev
+        npm run build
       working-directory: .
 
     - name: Deploy
       uses: azure/webapps-deploy@v3
       with:
         app-name: helloworldashish
-        package: ./next
+        package: ./.next
 
     - name: logout
       run:  |
