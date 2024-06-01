@@ -35,7 +35,7 @@ jobs:
       uses: azure/webapps-deploy@v3
       with:
         app-name: helloworldashish
-        package: ./build
+        package: ./next
 
     - name: logout
       run:  |
