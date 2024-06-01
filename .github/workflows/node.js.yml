@@ -37,5 +37,5 @@ jobs:
         package: ./build
 
     - name: logout
-        run: |
+        run:|
           az logout
