@@ -51,8 +51,8 @@ jobs:
         with:
           name: node-app
 
-      # - name: unZip artifact for deployment
-      #   run: unzip release.zip
+      - name: unZip artifact for deployment
+        run: unzip release.zip
 
       - uses: azure/login@v2
         with:
