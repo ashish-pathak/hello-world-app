@@ -32,7 +32,7 @@ jobs:
       working-directory: .
 
     - name: Zip artifact for deployment
-      run: zip release.zip ./* .env.production .next -qr
+      run: zip release.zip ./* .next .env -qr
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -51,8 +51,8 @@ jobs:
         with:
           name: node-app
 
-      - name: unZip artifact for deployment
-        run: unzip release.zip
+      #- name: unZip artifact for deployment
+        #run: unzip release.zip
 
       - uses: azure/login@v2
         with:
@@ -63,7 +63,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'helloworldashish'
-          package: .
+          package: release.zip
 
       - name: logout
         run:  |
