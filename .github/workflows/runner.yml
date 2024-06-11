@@ -14,11 +14,8 @@ jobs:
 
     runs-on: self-hosted
  
-    
-
     steps:
     - uses: actions/checkout@v2
-    
     
     - name: Use Node.js
       uses: actions/setup-node@v2
@@ -31,11 +28,10 @@ jobs:
         npm run build
       working-directory: .
 
-    - name: Zip artifact for deployment
-      run: zip release.zip ./* .next .env -qr
+    # - name: Zip artifact for deployment
+    #   run: Compress-Archive -Path folder/* -Destination new.zip
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
-      with:
-          name: node-app
-          path: release.zip
+    - name: Copy artifacts
+      run: |
+        Copy-item -Force -Recurse . -Destination F:\Code\IIS\hello-world-app
+      working-directory: .
